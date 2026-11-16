@@ -118,6 +118,9 @@ function FullCard({ project }) {
           <Typography variant="overline" color="primary" sx={{ lineHeight: 1.5 }}>{project.organisation}</Typography>
           <Typography variant="h4" component="h2">{project.title}</Typography>
           <Typography variant="subtitle1" color="text.secondary">{project.subtitle}</Typography>
+          {project.publication && (
+            <Chip label={`Published · ${project.publication.label}`} color="primary" size="small" sx={{ alignSelf: 'flex-start' }} />
+          )}
           <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" sx={{ mt: 1 }}>
             {project.tags.map((t) => <Chip key={t} label={t} size="small" variant="outlined" />)}
           </Stack>

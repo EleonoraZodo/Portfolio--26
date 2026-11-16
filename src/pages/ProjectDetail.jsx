@@ -4,6 +4,8 @@ import { Box, Button, Chip, Container, Grid2 as Grid, Paper, Stack, Typography }
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import ProjectTimeline from '../components/ProjectTimeline';
 import { projects } from '../data/content';
 
@@ -74,6 +76,18 @@ export default function ProjectDetail() {
             <PlaceOutlinedIcon fontSize="small" />
             <Typography>@ {p.organisation} · {p.location}</Typography>
           </Stack>
+          {p.publication && (
+            <Button
+              href={p.publication.url}
+              target="_blank"
+              rel="noopener"
+              variant="outlined"
+              startIcon={<ArticleOutlinedIcon />}
+              sx={{ mt: 3, color: '#fff', borderColor: 'rgba(255,255,255,0.6)', '&:hover': { borderColor: '#fff', bgcolor: 'rgba(255,255,255,0.1)' } }}
+            >
+              Read the paper · {p.publication.label}
+            </Button>
+          )}
         </Container>
       </Box>
 
@@ -128,11 +142,22 @@ export default function ProjectDetail() {
               </Box>
             );
             const sectionSx = { scrollMarginTop: { xs: 80, md: 96 } };
-            if (step.wide) {
+            const images = step.images || (step.image ? [step.image] : []);
+            // Text-only phase, or wide phase with figure(s) below the text
+            if (step.wide || images.length !== 1) {
               return (
                 <Box key={step.title} id={phaseId(i)} data-index={i} component="section" sx={sectionSx}>
                   <Box sx={{ maxWidth: 760 }}>{text}</Box>
-                  <Box sx={{ mt: 3 }}><Figure src={step.image} alt={step.title} /></Box>
+                  {images.length === 1 && <Box sx={{ mt: 3 }}><Figure src={images[0]} alt={step.title} /></Box>}
+                  {images.length > 1 && (
+                    <Grid container spacing={2} sx={{ mt: 3 }}>
+                      {images.map((src, k) => (
+                        <Grid key={src} size={{ xs: 12, md: k === 0 ? 12 : 6 }}>
+                          <Figure src={src} alt={`${step.title} ${k + 1}`} />
+                        </Grid>
+                      ))}
+                    </Grid>
+                  )}
                 </Box>
               );
             }
@@ -142,8 +167,8 @@ export default function ProjectDetail() {
                 <Grid container spacing={{ xs: 3, md: 6 }} alignItems="center" direction={{ xs: 'column-reverse', md: imageFirst ? 'row-reverse' : 'row' }}>
                   <Grid size={{ xs: 12, md: 6 }}>{text}</Grid>
                   <Grid size={{ xs: 12, md: 6 }}>
-                    <Box sx={{ maxWidth: step.image.includes('task-model') ? 360 : 'none', mx: 'auto' }}>
-                      <Figure src={step.image} alt={step.title} />
+                    <Box sx={{ maxWidth: step.imageMaxWidth || 'none', mx: 'auto' }}>
+                      <Figure src={images[0]} alt={step.title} />
                     </Box>
                   </Grid>
                 </Grid>
@@ -152,20 +177,27 @@ export default function ProjectDetail() {
           })}
         </Stack>
 
-        {/* Learnings */}
-        <Paper sx={{ mt: 10, p: { xs: 3, md: 5 }, bgcolor: 'rgba(42,140,130,0.07)' }}>
-          <Typography variant="h4" component="h2" sx={{ mb: 3 }}>My learnings</Typography>
-          <Grid container spacing={2}>
-            {p.learnings.map((l) => (
-              <Grid key={l} size={{ xs: 12, sm: 6 }}>
-                <Stack direction="row" spacing={1.5} alignItems="flex-start">
-                  <CheckCircleOutlineIcon color="primary" sx={{ mt: '2px' }} />
-                  <Typography>{l}</Typography>
-                </Stack>
+        {/* Closing lists (each optional) */}
+        {[
+          ['My learnings', p.learnings, CheckCircleOutlineIcon],
+          ['Next steps', p.nextSteps, ArrowForwardIcon],
+        ]
+          .filter(([, items]) => items?.length)
+          .map(([title, items, Icon]) => (
+            <Paper key={title} sx={{ mt: 10, p: { xs: 3, md: 5 }, bgcolor: 'rgba(42,140,130,0.07)' }}>
+              <Typography variant="h4" component="h2" sx={{ mb: 3 }}>{title}</Typography>
+              <Grid container spacing={2}>
+                {items.map((l) => (
+                  <Grid key={l} size={{ xs: 12, sm: 6 }}>
+                    <Stack direction="row" spacing={1.5} alignItems="flex-start">
+                      <Icon color="primary" sx={{ mt: '2px' }} />
+                      <Typography>{l}</Typography>
+                    </Stack>
+                  </Grid>
+                ))}
               </Grid>
-            ))}
-          </Grid>
-        </Paper>
+            </Paper>
+          ))}
       </Container>
     </Box>
   );

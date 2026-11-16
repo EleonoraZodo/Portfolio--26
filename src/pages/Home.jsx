@@ -6,6 +6,8 @@ import { profile, cv, projects } from '../data/content';
 
 // How many projects to preview on the landing page (first entries = most recent).
 const RECENT_COUNT = 3;
+// Phrases in the tagline that must never break across lines
+const KEEP_TOGETHER = /(Human-Robot Collaboration|AI-powered)/;
 
 // Mirrors the old Wix landing page: photo + "Ciao! I'm Nora" + three circular CTAs.
 const circles = [
@@ -38,10 +40,16 @@ export default function Home() {
         <Grid size={{ xs: 12, md: 7 }}>
           <Typography variant="h1" sx={{ fontSize: { xs: '3rem', md: '5rem' } }}>{profile.greeting}</Typography>
           <Typography variant="h3" component="p" sx={{ mt: 1 }}>
-            I'm {profile.nickname},
+            Here's {profile.nickname}.
           </Typography>
-          <Typography variant="h5" component="p" color="text.secondary" sx={{ mt: 1, fontWeight: 400 }}>
-            {profile.tagline}
+          <Typography variant="h5" component="p" color="text.secondary" sx={{ mt: 1.5, fontWeight: 400, lineHeight: 1.45, whiteSpace: 'pre-line' }}>
+            {profile.tagline.split(KEEP_TOGETHER).map((part, i) =>
+              i % 2 === 1 ? (
+                <Box key={i} component="span" sx={{ whiteSpace: 'nowrap' }}>{part}</Box>
+              ) : (
+                part
+              )
+            )}
           </Typography>
 
           <Stack direction="row" spacing={{ xs: 2, sm: 3 }} sx={{ mt: 6 }}>

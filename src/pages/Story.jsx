@@ -1,26 +1,35 @@
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, Button, Chip, Container, Grid2 as Grid, Stack, Typography } from '@mui/material';
+import { Box, Button, Chip, Container, Grid2 as Grid, Link, Stack, Typography } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { profile, story } from '../data/content';
+import { story } from '../data/content';
 
 export default function Story() {
+  const { image } = story;
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
       <Typography variant="overline" color="primary">My Story</Typography>
       <Grid container spacing={{ xs: 4, md: 8 }} sx={{ mt: 1 }}>
         <Grid size={{ xs: 12, md: 4 }}>
-          <Box
-            component="img"
-            src={profile.photo}
-            alt={profile.name}
-            sx={{ width: '100%', maxWidth: 320, aspectRatio: '4 / 5', objectFit: 'cover', borderRadius: 4, display: 'block', position: { md: 'sticky' }, top: { md: 104 } }}
-          />
+          <Box component="figure" sx={{ m: 0, maxWidth: 320, position: { md: 'sticky' }, top: { md: 104 } }}>
+            <Box
+              component="img"
+              src={image.src}
+              alt={image.alt}
+              sx={{ width: '100%', aspectRatio: '4 / 5', objectFit: 'cover', borderRadius: 4, display: 'block' }}
+            />
+            <Typography component="figcaption" variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1 }}>
+              Photo by{' '}
+              <Link href={image.authorUrl} target="_blank" rel="noopener" color="inherit">{image.author}</Link>
+              {' '}on{' '}
+              <Link href={image.sourceUrl} target="_blank" rel="noopener" color="inherit">Unsplash</Link>
+            </Typography>
+          </Box>
         </Grid>
         <Grid size={{ xs: 12, md: 8 }}>
           <Typography variant="h2" component="h1" sx={{ mb: 3 }}>
             Designing technology that starts with people.
           </Typography>
-          <Typography variant="h6" component="p" color="text.secondary" sx={{ fontWeight: 400, mb: 6 }}>
+          <Typography variant="h6" component="p" color="text.secondary" sx={{ fontWeight: 400, mb: 6, whiteSpace: 'pre-line' }}>
             {story.intro}
           </Typography>
 
