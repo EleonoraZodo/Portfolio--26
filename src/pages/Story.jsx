@@ -7,8 +7,7 @@ export default function Story() {
   const { image } = story;
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
-      <Typography variant="overline" color="primary">My Story</Typography>
-      <Grid container spacing={{ xs: 4, md: 8 }} sx={{ mt: 1 }}>
+      <Grid container spacing={{ xs: 4, md: 8 }}>
         <Grid size={{ xs: 12, md: 4 }}>
           <Box component="figure" sx={{ m: 0, maxWidth: 320, position: { md: 'sticky' }, top: { md: 104 } }}>
             <Box
@@ -26,8 +25,11 @@ export default function Story() {
           </Box>
         </Grid>
         <Grid size={{ xs: 12, md: 8 }}>
-          <Typography variant="h2" component="h1" sx={{ mb: 3 }}>
-            Designing technology that starts with people.
+          <Typography variant="h2" component="h1" sx={{ mb: 1.5 }}>
+            My path and vision
+          </Typography>
+          <Typography variant="h5" component="p" color="primary" sx={{ mb: 3 }}>
+            Designing technologies for collective well-being.
           </Typography>
           <Typography variant="h6" component="p" color="text.secondary" sx={{ fontWeight: 400, mb: 6, whiteSpace: 'pre-line' }}>
             {story.intro}
