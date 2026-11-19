@@ -1,4 +1,7 @@
-import { Container, Stack, Typography } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
+import { Box, Button, Container, Paper, Stack, Typography } from '@mui/material';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import ProjectCard from '../components/ProjectCard';
 import { projects } from '../data/content';
 
@@ -16,6 +19,22 @@ export default function Projects() {
       <Stack spacing={5}>
         {projects.map((p) => <ProjectCard key={p.slug} project={p} />)}
       </Stack>
+
+      <Paper
+        sx={{
+          mt: 8, p: { xs: 3, md: 5 }, bgcolor: 'rgba(42,140,130,0.07)',
+          display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 3, alignItems: { md: 'center' },
+        }}
+      >
+        <SchoolOutlinedIcon color="primary" sx={{ fontSize: 40 }} />
+        <Box sx={{ flex: 1 }}>
+          <Typography variant="h5" component="h2">Master in HCI</Typography>
+          <Typography color="text.secondary">Projects I contributed to during my master, between Trento and Vienna.</Typography>
+        </Box>
+        <Button component={RouterLink} to="/university" variant="contained" endIcon={<ArrowForwardIcon />} sx={{ alignSelf: { xs: 'flex-start', md: 'center' } }}>
+          See master projects
+        </Button>
+      </Paper>
     </Container>
   );
 }

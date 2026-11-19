@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Story from './pages/Story';
 import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
+import University from './pages/University';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/story" element={<Story />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:slug" element={<ProjectDetail />} />
+          <Route path="/university" element={<University />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Box>

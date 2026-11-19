@@ -121,6 +121,12 @@ function FullCard({ project }) {
           {project.publication && (
             <Chip label={`Published · ${project.publication.label}`} color="primary" size="small" sx={{ alignSelf: 'flex-start' }} />
           )}
+          {project.confidential && (
+            <Chip label="Confidential · images blurred" size="small" sx={{ alignSelf: 'flex-start' }} />
+          )}
+          {project.implementation && (
+            <Chip label={`Implemented by ${project.implementation.label}`} color="primary" size="small" sx={{ alignSelf: 'flex-start' }} />
+          )}
           <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" sx={{ mt: 1 }}>
             {project.tags.map((t) => <Chip key={t} label={t} size="small" variant="outlined" />)}
           </Stack>

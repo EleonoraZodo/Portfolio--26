@@ -6,6 +6,8 @@ import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import ProjectTimeline from '../components/ProjectTimeline';
 import { projects } from '../data/content';
 
@@ -74,7 +76,7 @@ export default function ProjectDetail() {
           <Typography variant="h5" component="p" sx={{ mt: 1, fontWeight: 400, opacity: 0.9 }}>{p.subtitle}</Typography>
           <Stack direction="row" spacing={1} alignItems="center" sx={{ mt: 3, opacity: 0.9 }}>
             <PlaceOutlinedIcon fontSize="small" />
-            <Typography>@ {p.organisation} · {p.location}</Typography>
+            <Typography>@ {p.organisation}{p.location ? ` · ${p.location}` : ''}</Typography>
           </Stack>
           {p.publication && (
             <Button
@@ -86,6 +88,18 @@ export default function ProjectDetail() {
               sx={{ mt: 3, color: '#fff', borderColor: 'rgba(255,255,255,0.6)', '&:hover': { borderColor: '#fff', bgcolor: 'rgba(255,255,255,0.1)' } }}
             >
               Read the paper · {p.publication.label}
+            </Button>
+          )}
+          {p.implementation && (
+            <Button
+              href={p.implementation.url}
+              target="_blank"
+              rel="noopener"
+              variant="outlined"
+              endIcon={<OpenInNewIcon />}
+              sx={{ mt: 3, color: '#fff', borderColor: 'rgba(255,255,255,0.6)', '&:hover': { borderColor: '#fff', bgcolor: 'rgba(255,255,255,0.1)' } }}
+            >
+              Implemented by {p.implementation.label}
             </Button>
           )}
         </Container>
@@ -128,6 +142,12 @@ export default function ProjectDetail() {
 
         {/* Phases in detail */}
         <Typography variant="h4" component="h2" sx={{ mt: 10, mb: 2 }}>Phases in detail</Typography>
+        {p.confidential && (
+          <Stack direction="row" spacing={1} alignItems="center" sx={{ color: 'text.secondary' }}>
+            <LockOutlinedIcon fontSize="small" />
+            <Typography variant="body2">Images are blurred for confidentiality, at the request of my employer.</Typography>
+          </Stack>
+        )}
         <Stack spacing={{ xs: 8, md: 10 }} sx={{ mt: 4 }}>
           {p.process.map((step, i) => {
             const text = (
@@ -139,6 +159,11 @@ export default function ProjectDetail() {
                 {step.paragraphs.map((t, k) => (
                   <Typography key={k} color="text.secondary" sx={{ mb: 1.5, lineHeight: 1.75 }}>{t}</Typography>
                 ))}
+                {step.link && (
+                  <Button href={step.link.url} target="_blank" rel="noopener" variant="outlined" endIcon={<OpenInNewIcon />} sx={{ mt: 1 }}>
+                    {step.link.label}
+                  </Button>
+                )}
               </Box>
             );
             const sectionSx = { scrollMarginTop: { xs: 80, md: 96 } };

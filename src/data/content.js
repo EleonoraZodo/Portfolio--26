@@ -179,6 +179,10 @@ export const projects = [
     role: 'Junior researcher in an interdisciplinary team',
     methods: 'Mixed methods, worker-centred design, iterative prototyping, VR-based testing',
     output: 'Research findings and design guidelines',
+    implementation: {
+      label: 'Profactor',
+      url: 'https://www.profactor.at/solution/automatisierung-fuer-die-flexible-fertigung/',
+    },
     // Overview shown on the Work Projects page — DRAFT: check and adjust wording.
     problem:
       'Polishing and inspecting ceramic washbasins is manual, skill-based work. Austrian SMEs wanted to semi-automate it with a robot while keeping the worker in the loop — which needs a way for workers and robots to share the task that feels intuitive, safe and trustworthy.',
@@ -253,7 +257,12 @@ export const projects = [
         paragraphs: [
           'We combined task performance in the VR simulation with survey self-reports and a thematic analysis of interview transcripts and observation notes to compare the conditions.',
           'None of the configurations emerged as significantly better. The original research question stayed open, but the study produced key design guidelines for the future development of the solution.',
+          'My idea was ultimately implemented by Profactor.',
         ],
+        link: {
+          label: 'See the solution at Profactor',
+          url: 'https://www.profactor.at/solution/automatisierung-fuer-die-flexible-fertigung/',
+        },
       },
     ],
     learnings: [
@@ -261,6 +270,167 @@ export const projects = [
       'Used multiple research tools and analysis methods to reach triangulation.',
       'Improved reporting and presenting in both English and German.',
       'Teamwork in a multicultural, interdisciplinary environment.',
+    ],
+  },
+  {
+    slug: 'corelab-ux-intern',
+    title: 'UX Unicorn',
+    subtitle: 'UX Designer Intern in IT consultancy',
+    organisation: 'Corelab',
+    cover: 'images/corelab-wireframes.jpg',
+    confidential: true,
+    summary:
+      'A 6-month curricular internship in IT consultancy: ideation, design and testing of web platforms for the Consortium for Technological Innovation of the Italian Chamber of Commerce, with an Agile approach.',
+    role: 'UX Design Intern',
+    problem:
+      'Two web platforms commissioned by the Consortium for Technological Innovation of the Italian Chamber of Commerce needed to be designed around their users and released in an Agile setting.',
+    roleDetail: [
+      'Developed personas from web analytics and past research',
+      'Outlined a customer journey to map the user experience',
+      'Created webpage wireframes with the junior visual designer',
+      'Drafted the internal User Acceptance Testing (UAT) spreadsheet',
+    ],
+    outcomes: [
+      'Wireframes reviewed and adjusted with customer feedback',
+      'Multiple Alpha Testing cycles to catch bugs and usability issues before release',
+      'Web platforms launched in their full version at the end of 2022',
+    ],
+    tags: ['CX design', 'Agile', 'Wireframing', 'UAT', 'Internship'],
+    background: [
+      { label: 'Context', text: '6-month curricular internship in IT consultancy.' },
+      {
+        label: 'Projects',
+        text: 'Two main projects commissioned by the Consortium for Technological Innovation of the Italian Chamber of Commerce.',
+      },
+      { label: 'Method', text: 'Design Thinking, User-Centered Design and Agile Prototyping.' },
+    ],
+    process: [
+      {
+        title: 'Ideation',
+        short: 'Customer consultation, personas, customer journey',
+        images: ['images/corelab-personas.jpg', 'images/corelab-journey.jpg'],
+        paragraphs: [
+          'The projects began with an initial consultation with customers to identify the key design requirements.',
+          'Personas were developed using web analytics and past research to learn more about the target users. A customer journey was outlined to visualise the interactive process and map the user experience.',
+        ],
+      },
+      {
+        title: 'Iterative design',
+        short: 'Wireframes in Miro, reviewed with the customer',
+        image: 'images/corelab-wireframes.jpg',
+        paragraphs: [
+          'Together with the junior visual designer, I created wireframes of webpages in Miro. The prototypes were progressively reviewed and adjusted according to the customer’s feedback.',
+        ],
+      },
+      {
+        title: 'Debug',
+        short: 'UAT spreadsheet and Alpha Testing cycles',
+        image: 'images/corelab-uat.jpg',
+        paragraphs: [
+          'I drafted the spreadsheet for the internal User Acceptance Testing (UAT) and worked with the development team on multiple cycles of Alpha Testing before release, to identify bugs and usability issues.',
+          'The projects continued after my internship ended in July 2022, and the web platforms were launched in their full version at the end of 2022.',
+        ],
+      },
+    ],
+    learnings: [
+      'Agile development in the constantly evolving environment of IT consultancy.',
+      'Creative and problem-solving skills in ideation and design.',
+      'Teamwork with designers and developers on UX deliverables.',
+      'Reporting and presenting to stakeholders.',
+    ],
+  },
+];
+
+// University projects (MSc coursework) — text from the old Wix site, condensed.
+export const masterHci = {
+  title: 'Master in HCI',
+  intro: 'Projects I contributed to during my master in Human-Computer Interaction, between Trento and Vienna.',
+  diversity: {
+    title: 'Different countries, diverse teams',
+    text: 'I have worked in different countries, in diverse teams in terms of age, expertise, nationality and personal stories.',
+    places: ['Trento, Italy', 'Vienna, Austria'],
+    dimensions: ['Age', 'Expertise', 'Nationality', 'Personal stories'],
+  },
+};
+
+export const uniProjects = [
+  {
+    title: 'Unfolding Spaces',
+    subtitle: 'Ideating an AR installation in Vienna',
+    university: 'TU Wien — MSc Media and Human-Centered Computing (Erasmus)',
+    course: 'Design Thinking — Ideation',
+    role: 'Researcher and creative in horizontal team',
+    method: 'Design thinking, qualitative research, design workshop and games',
+    output: 'Research findings, design concept',
+    tags: ['Generative research', 'Qualitative UXR', 'Mock-ups'],
+    brief:
+      'Group project: AR application for promotion of environmentally friendly actions and of public space use in the Seestadt Aspern suburb in Vienna.',
+    steps: [
+      { title: 'Explore Seestadt', text: 'On a guided tour we observed a lack of greenery and scarce use of public spaces.' },
+      { title: 'Ideate', text: 'An AR system projecting trees and virtual objects to animate the grey area in front of the metro station.' },
+      { title: 'Literature & experts', text: 'I reviewed literature and interviewed 3 experts of user-centred VR/AR applications on the human factors to consider.' },
+      { title: 'Cultural probes', text: 'Two weekly challenges on sustainable mobility and on the facilities people wished to have around.' },
+      { title: 'Personas & scenarios', text: 'User journeys to identify pain points and design directions.' },
+      { title: 'Design workshop', text: 'Defined the furniture for the installation and criteria to prevent overcluttering.' },
+      { title: 'Design game', text: 'A board game on how it feels to share a virtual space and modify it collectively.' },
+      { title: 'Provocative requisite', text: 'A poster advocating for more cars, tested in Seestadt and at TU Wien.' },
+    ],
+    result:
+      'A modular, accessible piece of furniture with sensors and a QR code, and an AR environment where plants grow as more metro commuters are counted.',
+    learnings: [
+      'Adoption of design thinking mindset',
+      'Use of multiple research and creative tools',
+      'Problem-solving and team coordination under lockdown limitations',
+    ],
+  },
+  {
+    title: 'Zoom Fatigue',
+    subtitle: 'Investigating the experience of students attending classes remotely',
+    university: 'University of Trento — MSc Human-Computer Interaction',
+    course: 'Qualitative Research & Participatory Design',
+    role: 'UX researcher in horizontal team',
+    method: 'Qualitative research, participatory design workshop',
+    output: 'Research findings, personas, workshop artefacts',
+    tags: ['Exploratory research', 'Qualitative UXR', 'Participatory design'],
+    brief:
+      'Group project: investigation of college students’ experience with classes on Zoom, and of remedies against Zoom Fatigue.',
+    steps: [
+      { title: 'Define the question', text: 'Zoom Fatigue: discomfort and exhaustion from prolonged use of video-call platforms (Nadler, 2020).' },
+      { title: 'Multimethod research', text: 'Virtual ethnography of 5 venues, 2 interviews per team member, 1 online focus group with 5 students.' },
+      { title: 'Analyse', text: 'Thematic analysis and affinity diagrams: poor wellbeing, decreased productivity, lack of social interactions.' },
+      { title: 'Participatory workshop', text: 'After a pilot, two groups of students turned negative scenarios into better ones.' },
+    ],
+    result:
+      'Design directions from the workshop artefacts, collected in a document for students enrolling in online classes for the first time.',
+    learnings: [
+      'Tried a set of qualitative research techniques',
+      'Critically reviewed process and output for biases, individually and with my team',
+      'Facilitated the focus group and co-facilitated the workshop',
+    ],
+  },
+  {
+    title: 'E-learning platform',
+    subtitle: 'For pupils with Special Educational Needs',
+    university: 'University of Trento — MSc Human-Computer Interaction',
+    course: 'Educational Technology',
+    role: 'UX designer in horizontal team, communication with stakeholders',
+    method: 'User-centred design, iterative approach',
+    output: 'Hi-Fi wireframes of the platform UI',
+    tags: ['Accessible design', 'Iterative prototyping', 'Heuristic evaluation'],
+    brief:
+      'Group project: design of an e-learning platform for students with learning impairments, supervised by cognitive psychologists and web developers.',
+    steps: [
+      { title: 'Define guidelines', text: 'WCAG principles and literature research. I focused on dyslexia and teaching dyslexic students.' },
+      { title: 'Plan with commissioners', text: 'Q&A with the expert board on end users, context of use and core functionalities. We worked on the teacher interface.' },
+      { title: 'Information architecture', text: 'Entity-relationship diagrams and task models for scenarios such as synchronous vs. asynchronous teaching.' },
+      { title: 'Think > Design > Assess', text: 'Paper sketches, then InVision and Miro wireframes revised after periodic reviews with the experts.' },
+    ],
+    result:
+      'A mock-up rated with the maximum grade by experts and professors, to be integrated into the full platform for schools in Trentino Alto Adige, Italy.',
+    learnings: [
+      'Teamwork across computer science, media informatics and psychology',
+      'Diagrams to trace user workflow and identify key features',
+      'Presentation and mediation skills with the expert board',
     ],
   },
 ];
