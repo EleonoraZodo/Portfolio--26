@@ -277,6 +277,7 @@ export const projects = [
     title: 'UX Unicorn',
     subtitle: 'UX Designer Intern in IT consultancy',
     organisation: 'Corelab',
+    organisationUrl: 'https://www.corelab.it/',
     cover: 'images/corelab-wireframes.jpg',
     confidential: true,
     summary:
@@ -431,6 +432,53 @@ export const uniProjects = [
       'Teamwork across computer science, media informatics and psychology',
       'Diagrams to trace user workflow and identify key features',
       'Presentation and mediation skills with the expert board',
+    ],
+  },
+];
+
+// Reference letters. PDFs in public/references have role-specific lines blurred.
+export const references = [
+  {
+    pdf: 'references/reference-lortek.pdf',
+    date: 'February 2026',
+    context: 'COROB · EU Horizon Europe project',
+    quote: 'remarkable ability to analyse and understand the functioning of complex sociotechnical systems',
+    authors: [
+      { name: 'Iñaki Sainz', role: 'Project Manager', org: 'Lortek', linkedin: 'https://www.linkedin.com/in/inakisainz/' },
+    ],
+  },
+  {
+    pdf: 'references/reference-qut.pdf',
+    date: '2024',
+    context: 'Tutor, DXB110 Principles of Interaction and UX Design',
+    quote: 'a combination of pedagogical sensitivity, technical competence, and a reflective mindset',
+    authors: [
+      {
+        name: 'Nick Kelly',
+        role: 'Associate Professor of Design Science',
+        org: 'School of Design, Queensland University of Technology',
+        linkedin: 'https://www.linkedin.com/in/nick-kelly-research/',
+      },
+    ],
+  },
+  {
+    pdf: 'references/reference-ait.pdf',
+    date: 'April 2023',
+    context: 'Graduate researcher, AIT Center for Technology Experience',
+    quote: 'a great sense of initiative, resilience and adaptability',
+    authors: [
+      {
+        name: 'Markus Murtinger',
+        role: 'Head of Competence Unit, Experience Business Transformation',
+        org: 'AIT Austrian Institute of Technology',
+        linkedin: 'https://www.linkedin.com/in/markus-murtinger/',
+      },
+      {
+        name: 'Jaison Puthenkalam',
+        role: 'Expert Advisor, Experience Business Transformation',
+        org: 'AIT Austrian Institute of Technology',
+        linkedin: 'https://www.linkedin.com/in/jaison-puthenkalam/',
+      },
     ],
   },
 ];

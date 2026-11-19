@@ -22,6 +22,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import DownloadIcon from '@mui/icons-material/Download';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import RateReviewOutlinedIcon from '@mui/icons-material/RateReviewOutlined';
 import { profile, cv } from '../data/content';
 
 const links = [
@@ -100,6 +101,11 @@ export default function NavBar() {
                 <ListItemIcon><OpenInNewIcon fontSize="small" /></ListItemIcon>
                 <ListItemText primary="Open in browser" />
               </MenuItem>
+              <Divider />
+              <MenuItem component={RouterLink} to="/references" onClick={() => setCvAnchor(null)}>
+                <ListItemIcon><RateReviewOutlinedIcon fontSize="small" /></ListItemIcon>
+                <ListItemText primary="Reference letters" />
+              </MenuItem>
             </Menu>
           </Box>
 
@@ -129,6 +135,10 @@ export default function NavBar() {
                 <ListItemButton component="a" href={cv.pdf} target="_blank" rel="noopener">
                   <ListItemIcon><OpenInNewIcon fontSize="small" /></ListItemIcon>
                   <ListItemText primary="Open in browser" />
+                </ListItemButton>
+                <ListItemButton component={RouterLink} to="/references" selected={isActive('/references')}>
+                  <ListItemIcon><RateReviewOutlinedIcon fontSize="small" /></ListItemIcon>
+                  <ListItemText primary="Reference letters" />
                 </ListItemButton>
               </List>
             </Box>

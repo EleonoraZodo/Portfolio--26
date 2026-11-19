@@ -8,6 +8,7 @@ import Story from './pages/Story';
 import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 import University from './pages/University';
+import References from './pages/References';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:slug" element={<ProjectDetail />} />
           <Route path="/university" element={<University />} />
+          <Route path="/references" element={<References />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Box>

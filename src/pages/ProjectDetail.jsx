@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link as RouterLink, Navigate, useParams, useSearchParams } from 'react-router-dom';
-import { Box, Button, Chip, Container, Grid2 as Grid, Paper, Stack, Typography } from '@mui/material';
+import { Box, Button, Chip, Container, Grid2 as Grid, Link, Paper, Stack, Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
@@ -76,7 +76,15 @@ export default function ProjectDetail() {
           <Typography variant="h5" component="p" sx={{ mt: 1, fontWeight: 400, opacity: 0.9 }}>{p.subtitle}</Typography>
           <Stack direction="row" spacing={1} alignItems="center" sx={{ mt: 3, opacity: 0.9 }}>
             <PlaceOutlinedIcon fontSize="small" />
-            <Typography>@ {p.organisation}{p.location ? ` · ${p.location}` : ''}</Typography>
+            <Typography>
+              @{' '}
+              {p.organisationUrl ? (
+                <Link href={p.organisationUrl} target="_blank" rel="noopener" color="inherit" sx={{ textDecorationColor: 'rgba(255,255,255,0.6)' }}>
+                  {p.organisation}
+                </Link>
+              ) : p.organisation}
+              {p.location ? ` · ${p.location}` : ''}
+            </Typography>
           </Stack>
           {p.publication && (
             <Button

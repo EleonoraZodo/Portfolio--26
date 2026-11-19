@@ -10,6 +10,7 @@ import {
   Chip,
   Collapse,
   Grid2 as Grid,
+  Link,
   Stack,
   Typography,
 } from '@mui/material';
@@ -143,7 +144,15 @@ function FullCard({ project }) {
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
             <OverviewColumn icon={<PersonOutlineIcon fontSize="small" />} label="My role">
-              <Typography variant="body2" sx={{ fontWeight: 600, mb: 1 }}>{project.role}</Typography>
+              <Typography variant="body2" sx={{ fontWeight: 600, mb: 1 }}>
+                {project.role}
+                {project.organisationUrl && (
+                  <>
+                    {' '}@{' '}
+                    <Link href={project.organisationUrl} target="_blank" rel="noopener">{project.organisation}</Link>
+                  </>
+                )}
+              </Typography>
               <Bullets items={project.roleDetail} />
             </OverviewColumn>
           </Grid>
